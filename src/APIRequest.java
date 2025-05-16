@@ -8,7 +8,10 @@ public class APIRequest {
 
     public Currency currencyConversion(String base_code, String target_code, double amount){
 
-        URI link = URI.create("https://v6.exchangerate-api.com/v6/6eb8752d684bda000bfdce8a/pair/" + base_code + "/" + target_code + "/"+amount);
+        URI link = URI.create("https://v6.exchangerate-api.com/v6/6eb8752d684bda000bfdce8a/pair/"
+                + base_code + "/"
+                + target_code + "/"
+                + amount);
 
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
