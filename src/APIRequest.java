@@ -6,7 +6,7 @@ import java.net.http.HttpResponse;
 
 public class APIRequest {
 
-    public Currency currencyConversion(String base_code, String target_code, double amount){
+    public CurrencyRecord currencyConversion(String base_code, String target_code, double amount){
 
         URI link = URI.create("https://v6.exchangerate-api.com/v6/6eb8752d684bda000bfdce8a/pair/"
                 + base_code + "/"
@@ -21,7 +21,7 @@ public class APIRequest {
         try {
             HttpResponse<String> response = client
                     .send(request, HttpResponse.BodyHandlers.ofString());
-            return new Gson().fromJson(response.body(), Currency.class);
+            return new Gson().fromJson(response.body(), CurrencyRecord.class);
         } catch (Exception e){
             throw new RuntimeException("Error: " + e);
         }
